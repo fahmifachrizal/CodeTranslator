@@ -1,32 +1,70 @@
 const initialState = {
-  homeState: 'nearby',
-  activeMenu: '',
-  posts: [],
-  searchResult: [],
+  menu:'code',
+  darkMode: false,
+  source:'JavaScript',
+  target:'Python',
+  selection:[
+    { value: 'Pascal', label: 'Pascal' },
+    { value: 'JavaScript', label: 'JavaScript' },
+    { value: 'TypeScript', label: 'TypeScript' },
+    { value: 'Python', label: 'Python' },
+    { value: 'TSX', label: 'TSX' },
+    { value: 'JSX', label: 'JSX' },
+    { value: 'Vue', label: 'Vue' },
+    { value: 'Go', label: 'Go' },
+    { value: 'C', label: 'C' },
+    { value: 'C++', label: 'C++' },
+    { value: 'Java', label: 'Java' },
+    { value: 'C#', label: 'C#' },
+    { value: 'Visual Basic .NET', label: 'Visual Basic .NET' },
+    { value: 'SQL', label: 'SQL' },
+    { value: 'Assembly Language', label: 'Assembly Language' },
+    { value: 'PHP', label: 'PHP' },
+    { value: 'Ruby', label: 'Ruby' },
+    { value: 'Swift', label: 'Swift' },
+    { value: 'SwiftUI', label: 'SwiftUI' },
+    { value: 'Kotlin', label: 'Kotlin' },
+    { value: 'R', label: 'R' },
+    { value: 'Objective-C', label: 'Objective-C' },
+    { value: 'Perl', label: 'Perl' },
+    { value: 'SAS', label: 'SAS' },
+    { value: 'Scala', label: 'Scala' },
+    { value: 'Dart', label: 'Dart' },
+    { value: 'Rust', label: 'Rust' },
+    { value: 'Haskell', label: 'Haskell' },
+    { value: 'Lua', label: 'Lua' },
+    { value: 'Groovy', label: 'Groovy' },
+    { value: 'Elixir', label: 'Elixir' },
+    { value: 'Clojure', label: 'Clojure' },
+    { value: 'Lisp', label: 'Lisp' },
+    { value: 'Julia', label: 'Julia' },
+    { value: 'Matlab', label: 'Matlab' },
+    { value: 'Fortran', label: 'Fortran' },
+    { value: 'COBOL', label: 'COBOL' },
+    { value: 'Bash', label: 'Bash' },
+    { value: 'Powershell', label: 'Powershell' },
+    { value: 'PL/SQL', label: 'PL/SQL' },
+    { value: 'CSS', label: 'CSS' },
+    { value: 'Racket', label: 'Racket' },
+    { value: 'HTML', label: 'HTML' },
+    { value: 'NoSQL', label: 'NoSQL' },
+    { value: 'Natural Language', label: 'Natural Language' },
+    { value: 'CoffeeScript', label: 'CoffeeScript' },
+  ]
 }
 
 const uxReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ux/changeHomeState':
+    case 'ux/changeLanguage':
       return {
         ...state,
-        homeState: action.payload.homeState
+        [action.payload.sourceTarget]: action.payload.language
       }
-      case 'ux/changeMenu':
-        return {
-          ...state,
-          activeMenu: action.payload.activeMenu
-        }
-      case 'ux/getPost':
-        return {
-          ...state,
-          posts: action.payload.posts
-        }
-      case 'ux/getSearchPost':
-        return {
-          ...state,
-          searchResult: action.payload.searchResult
-        }
+    case 'ux/darkMode':
+      return {
+        ...state,
+        darkMode: action.payload.darkMode
+      }
     default:
       return state
   }
